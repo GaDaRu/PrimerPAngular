@@ -1,0 +1,36 @@
+<div class="container calculator">
+  <div class="row">
+    <div class="col-12">
+      <input type="text" id="display" style="text-align: right" disabled [value]="value">
+    </div>
+    <div class="col-12 centerRow">
+      <input type="button" value="AC" (click)="cleanValue()">
+      <input type="button" value="<=" (click)="deleteLastValue()">
+      <input type="button" value="%" (click)="calculate(true)">
+      <input type="button" value="/" (click)="addValue('/')">
+    </div>
+    <div class="col-12 centerRow">
+      <input type="button" value="7" (click)="addValue(7)">
+      <input type="button" value="8" (click)="addValue(8)">
+      <input type="button" value="9" (click)="addValue(9)">
+      <input type="button" value="*" (click)="addValue('*')">
+    </div>
+    <div class="col-12 centerRow">
+      <input type="button" value="4" (click)="addValue(4)">
+      <input type="button" value="5" (click)="addValue(5)">
+      <input type="button" value="6" (click)="addValue(6)">
+      <input type="button" value="-" (click)="addValue('-')">
+    </div>
+    <div class="col-12 centerRow">
+      <input type="button" value="1" (click)="addValue(1)">
+      <input type="button" value="2" (click)="addValue(2)">
+      <input type="button" value="3" (click)="addValue(3)">
+      <input type="button" value="+" (click)="addValue('+')">
+    </div>
+    <div class="col-12 centerRow">
+      <input type="button" value="0" (click)="addValue(0)">
+      <input type="button" value="." (click)="addValue('.')">
+      <input type="button" value="=" (click)="calculate(false)">
+    </div>
+  </div>
+</div>
