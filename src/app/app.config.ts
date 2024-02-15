@@ -2,7 +2,17 @@ import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
+import {provideHttpClient, withFetch} from "@angular/common/http";
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes)]
+  providers: [
+    provideRouter(routes),
+    provideHttpClient(withFetch()),
+    provideAnimationsAsync(),
+    MatSlideToggleModule,
+    FontAwesomeModule
+  ]
 };

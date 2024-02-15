@@ -1,0 +1,8 @@
+<div class="col-12">
+  <input type="text" [(ngModel)]="valueInput">
+  <button style="border:none; height:30px" (click)="search()"><fa-icon [icon]="faShe"></fa-icon></button>
+  <button style="height:30px; margin-left: 5px; min-width: 60px" (click)="getRandomJoke()"><fa-icon [icon]="faQue"></fa-icon></button>
+</div>
+<div class="col-12" style="margin-top: 20px">
+  <p>{{joke}}</p>
+</div>
