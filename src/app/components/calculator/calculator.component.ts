@@ -20,10 +20,20 @@ export class CalculatorComponent {
         let percentageCalculate = (Number(data[1]) / 100) * Number(data[0])
         return match[0] + percentageCalculate.toString()
       })
-      this.value = eval(this.value)
+
+      try {
+        //this.value = eval(this.value)
+      } catch (e) {
+        console.log(e)
+      }
     }
-    else
-      this.value = eval(this.value)
+    else {
+      try {
+        //this.value = eval(this.value)
+      } catch (e) {
+        console.log(e)
+      }
+    }
   }
 
   addValue(value: any) {
