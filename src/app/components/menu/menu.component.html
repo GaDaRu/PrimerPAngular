@@ -1,6 +1,8 @@
-<nav>
-  <ul>
-    <li><a routerLink="/">Inicio</a></li>
-    <li><a routerLink="/record">Historial</a></li>
-  </ul>
-</nav>
+<header>
+  <nav *ngIf="loginService.isLoggued">
+    <ul>
+      <li><a routerLink="/">Inicio</a></li>
+      <li><a routerLink="/record">Historial</a></li>
+    </ul>
+  </nav>
+</header>
