@@ -1,18 +1,18 @@
 <div class="login-page">
   <div class="form">
-    <form class="register-form" *ngIf="register">
+    <div class="register-form" *ngIf="register">
       <input type="text" placeholder="Nombre"/>
       <input type="password" placeholder="Contraseña"/>
       <input type="text" placeholder="Email"/>
       <button>Crear</button>
-      <button>GMail</button>
       <p class="message">¿Ya tienes cuenta? <a (click)="changeForm()">Logueate</a></p>
-    </form>
-    <form class="login-form" *ngIf="!register">
+    </div>
+    <div class="login-form" *ngIf="!register">
       <input type="text" placeholder="Email"/>
       <input type="password" placeholder="Contraseña"/>
       <button>Login</button>
+      <button (click)="loginGoogle()" style="margin-top: 4px">GMail</button>
       <p class="message">¿Aún no estás registrado? <a (click)="changeForm()">Crear una cuenta</a></p>
-    </form>
+    </div>
   </div>
 </div>

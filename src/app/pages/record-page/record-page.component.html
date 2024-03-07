@@ -1,4 +1,5 @@
 <div>
+  <button (click)="deleteList()">Eliminar todo</button>
   <mat-card *ngFor="let joke of listJokes">
     <mat-card-content>{{ joke }}</mat-card-content>
   </mat-card>

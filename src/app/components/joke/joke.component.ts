@@ -30,7 +30,7 @@ export class JokeComponent implements OnInit{
 
   constructor(
     private chuckService: ChuckService,
-    public localStorage: LocalStorageService
+    private localStorage: LocalStorageService
   ) {
   }
 

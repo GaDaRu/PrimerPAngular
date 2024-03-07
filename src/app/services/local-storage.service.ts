@@ -11,7 +11,7 @@ export class LocalStorageService {
     localStorage.setItem(key, value)
   }
 
-  saveArray(key: string, value: string[]) {
+  saveArray(key: string, value: any[]) {
     localStorage.setItem(key, JSON.stringify(value))
   }
 

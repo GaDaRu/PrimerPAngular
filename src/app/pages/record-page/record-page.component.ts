@@ -29,4 +29,9 @@ export class RecordPageComponent implements OnInit{
     console.log(this.localStorage.getArrayLocalStorage(enviroment.KEY_JOKE))
     this.listJokes = this.localStorage.getArrayLocalStorage(enviroment.KEY_JOKE) ?? []
   }
+
+  deleteList() {
+    this.localStorage.deleteAllLocalStorage()
+    this.listJokes = []
+  }
 }

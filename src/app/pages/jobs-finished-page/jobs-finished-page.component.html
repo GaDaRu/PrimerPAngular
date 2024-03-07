@@ -1,0 +1,19 @@
+<div class="row m-4">
+  <div class="col-12" style="margin-top: 32px">
+    <div *ngFor="let job of listaTareas">
+      <mat-card *ngIf="job.completada" style="margin-bottom: 8px; background-color: #D3D3D3">
+        <mat-card-header>
+          <mat-card-title>{{ job.nombre }}</mat-card-title>
+          <mat-card-subtitle>{{ job.descripcion }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions class="d-flex justify-content-end">
+          <button (click)="startJob(job.id)">Rehacer</button>
+          <button (click)="deleteJob(job.id)">Eliminar</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div *ngIf="!jobsFinish">
+      <p>No hay tareas terminadas</p>
+    </div>
+  </div>
+</div>
