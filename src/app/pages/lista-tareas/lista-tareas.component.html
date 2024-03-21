@@ -1,18 +1,20 @@
 <div class="row m-4">
   <div class="col-12 d-grid">
-    <input type="text" placeholder="Nombre tarea" [(ngModel)]="titulo">
-    <textarea [(ngModel)]="descripcion" placeholder="Descripción"></textarea>
-    <button (click)="saveJob()">Añadir tarea</button>
+    <form [formGroup]="formTarea">
+      <input style="width: 100%; margin-bottom: 4px;" type="text" placeholder="Nombre tarea" formControlName="titulo">
+      <textarea style="width: 100%;" placeholder="Descripción" formControlName="descripcion"></textarea>
+    </form>
+    <button (click)="saveJob()" [disabled]="!formTarea.valid">Añadir tarea</button>
   </div>
   <div class="col-12" style="margin-top: 32px">
     <div *ngFor="let job of listaTareas">
-      <mat-card *ngIf="!job.completada" style="margin-bottom: 8px; background-color: #D3D3D3">
+      <mat-card *ngIf="job.completada != estado.complete" style="margin-bottom: 8px; background-color: #D3D3D3">
         <mat-card-header>
           <mat-card-title>{{ job.nombre }}</mat-card-title>
           <mat-card-subtitle>{{ job.descripcion }}</mat-card-subtitle>
         </mat-card-header>
         <mat-card-actions class="d-flex justify-content-end">
-          <button (click)="finishJob(job.id)">Terminar</button>
+          <button (click)="finishJob(job)">{{ getNameButton(job) }}</button>
         </mat-card-actions>
       </mat-card>
     </div>

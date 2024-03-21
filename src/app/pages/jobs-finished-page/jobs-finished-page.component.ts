@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {enviroment} from "../../../environments/enviroment";
-import {Tarea} from "../../models/tarea";
+import {Estado, Tarea} from "../../models/tarea";
 import {LocalStorageService} from "../../services/local-storage.service";
 import {MatCard, MatCardActions, MatCardHeader, MatCardSubtitle, MatCardTitle} from "@angular/material/card";
 import {NgForOf, NgIf} from "@angular/common";
@@ -26,6 +26,8 @@ export class JobsFinishedPageComponent implements OnInit{
   listaTareas: Tarea[] = []
   jobsFinish: boolean = false
 
+  estado = Estado
+
   constructor(
     private localStorage: LocalStorageService
   ) {
@@ -37,14 +39,9 @@ export class JobsFinishedPageComponent implements OnInit{
   }
 
   startJob(id?: number) {
-    let jobModified = this.listaTareas.find(job => job.id == id)
-    jobModified!.completada = false
-    this.listaTareas.splice(this.listaTareas.findIndex(job => job.id === id), 1)
-
-    if (jobModified != undefined) {
-      this.saveInLocal(jobModified)
-      this.checkMessage()
-    }
+    this.listaTareas.map(job => job.id == id ? job.completada = Estado.waiting : null)
+    this.localStorage.saveArray(enviroment.KEY_JOB, this.listaTareas)
+    this.checkMessage()
   }
 
   saveInLocal(job: Tarea) {
@@ -66,7 +63,7 @@ export class JobsFinishedPageComponent implements OnInit{
     this.jobsFinish = false
     
     this.listaTareas.forEach(job => {
-      if (job.completada == true) {
+      if (job.completada == Estado.complete) {
         this.jobsFinish = true
       }
     })

@@ -1,13 +1,20 @@
-export class Tarea {
+export interface Tarea {
   id?: number
   nombre?: string
   descripcion?: string
-  completada?: boolean
+  completada?: Estado
 
-  constructor(id: number, name: string, description: string) {
+  /*constructor(id: number, name: string, description: string) {
     this.id = id
     this.nombre = name
     this.descripcion = description
-    this.completada = false
-  }
+    this.completada = Estado.waiting
+  }*/
+}
+
+export enum Estado {
+  waiting,
+  assigned,
+  progress,
+  complete
 }
